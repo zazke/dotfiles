@@ -23,10 +23,10 @@ set smartindent
 " Word wrap
 set wrap
 set linebreak
-" Set textwidth when you know how to quickly 'justify' comments or block of
-" text.  This is a really nice feature, but how can I edit C comments without
-" leaving some lines short?
-" set textwidth=80
+" TODO: Figure out how to quickly 'justify' comments or block of
+" text.  Auto-text wrapping is a  really nice feature, but how can I edit C comments 
+" without leaving some lines short?
+set textwidth=80
 " set wrapmargin=0
 " set formatoptions-=t
 
