@@ -1,34 +1,70 @@
+" mitsuo's vimrc
+" Created c. 2019-11-11
+"
+" ┌─┬─┬─┬─┬─┬─┐
+" │m│i│t│s│u│o│✓x
+" ├─┼─┼─┼─┼─┼─┤
+" │v│i│m│r│c│←│█▓▒░
+" └─┴─┴─┴─┴─┴─┘
+" がんばれ
+
 " Shit that gets disabled because I created this file
+" ===================================================
 set nocompatible
-filetype indent plugin on
+" Auto-recognize files and apply pluggins 
+filetype plugin indent on 
 syntax on
 set wildmenu
 set showcmd
 
-" Numbers
+" Options that aren't default in some systems
+" ===========================================
+set backspace=indent,eol,start
+
+" Number gutter
+" =============
 set number
+set relativenumber
 
 " Search
+" ======
 set hlsearch
-	
+set incsearch
+" Redraw and turn of search highlight in normal mode (non recursive)
+nnoremap <C-L> :nohl<CR><C-L>
+set ignorecase
+set smartcase
+
 " Indentation
+" ===========
+" softtabs de 4 columnas, no se expanden los tabs (util para tabular y para
+" programar en assembler)
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
-set smarttab
 set autoindent
 set smartindent
+set cindent
+
+" Automatic formatting
+" ====================
+" see fo-table
+set formatoptions=rql
+set formatoptions-=o
+set formatoptions+=t		" auto-wrap text (when inserting)
+set formatoptions+=c		" auto-wrap comments (when inserting)
+"set formatoptions+=a		" auto-formatting of paragraphs (always).  (this
+				" messes with being able to '=====' underline
+				" just below a section header comment
 
 " Word wrap
+" =========
 set wrap
 set linebreak
-" TODO: Figure out how to quickly 'justify' comments or block of
-" text.  Auto-text wrapping is a  really nice feature, but how can I edit C comments 
-" without leaving some lines short?
+" To 'justify' comments or block of text (paragraph) use "gq{motion}" or
+" "gp{motion}", where {motion} can be "[/", "]/", "ip", "i{", "a{".
 set textwidth=80
-" set wrapmargin=0
-" set formatoptions-=t
 
 " Other settings
 " ==============
@@ -43,6 +79,16 @@ set ruler
 map <F7> :tabp<CR>
 map <F8> :tabn<CR>
 
-" ? Map <C-L> (redraw screen) to also turn off search highlighting until the 
-" next search
-nnoremap <C-L> :nohl<CR><C-L>
+" Yanking and pasting
+" ===================
+" TODO: map something to "+y (cut buffer) and "*y (selection buffer) while in
+" visual mode.
+"vmap <++> "+y	    " The yank to the cut buffer (clipboard)
+"vmap <++> "*y	    " The yank to the selection buffer
+
+
+" Additions
+" =========
+" TODO: Funcion para reindentar archivo con mi configuracion.  Esta funcion de
+" vim.fandom.com no se como funciona.  (Ver perlexpr?)
+":command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
