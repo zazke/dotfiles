@@ -12,10 +12,11 @@
 " ===================================================
 set nocompatible
 " Auto-recognize files and apply pluggins 
-filetype plugin indent on 
+" filetype plugin indent on 
 syntax on
 set wildmenu
 set showcmd
+set scrolloff=5	    " show a few lines of context
 
 " Options that aren't default in some systems
 " ===========================================
@@ -23,14 +24,14 @@ set backspace=indent,eol,start
 
 " Number gutter
 " =============
-set number
+set nonumber
 set relativenumber
 
 " Search
 " ======
 set hlsearch
 set incsearch
-" Redraw and turn of search highlight in normal mode (non recursive)
+" Redraw and turn off search highlight in normal mode (non recursive)
 nnoremap <C-L> :nohl<CR><C-L>
 set ignorecase
 set smartcase
@@ -43,20 +44,26 @@ set tabstop=8
 set softtabstop=4
 set shiftwidth=4
 set noexpandtab
-set autoindent
-set smartindent
-set cindent
+" autoindent -> smartindent -> cindent -> indentexpr (from less to more
+" general, each one overrides the previous ones)
+set smartindent	" This is a really nice and simple one
+"set cindent		
+"set cinoptions=:0,g0	" See C-indenting
 
 " Automatic formatting
 " ====================
 " see fo-table
 set formatoptions=rql
-set formatoptions-=o
+set formatoptions-=o		" Automatically insert the current comment leader 
+				" after hitting 'o'.
 set formatoptions+=t		" auto-wrap text (when inserting)
 set formatoptions+=c		" auto-wrap comments (when inserting)
 "set formatoptions+=a		" auto-formatting of paragraphs (always).  (this
 				" messes with being able to '=====' underline
-				" just below a section header comment
+				" just below a section header comment.
+set formatoptions+=p		" Don't break lines after '.'
+set formatoptions+=n		" Allow lists
+set formatoptions+=j		" Removes comment leader when joining lines
 
 " Word wrap
 " =========
@@ -73,11 +80,14 @@ set mouse=a
 " Always display the status line, even if only one window is displayed
 set laststatus=2
 set ruler
+set encoding=utf-8
 
 " Mappings
 " ========
 map <F7> :tabp<CR>
 map <F8> :tabn<CR>
+" TODO: Funcking unmap the F1 key
+"unmap <F1>
 
 " Yanking and pasting
 " ===================
@@ -86,9 +96,31 @@ map <F8> :tabn<CR>
 "vmap <++> "+y	    " The yank to the cut buffer (clipboard)
 "vmap <++> "*y	    " The yank to the selection buffer
 
+" Buffers
+" =======
+set hidden
+map <S-F7> :bNext<LF>
+map <S-F8> :bnext<LF>
+
+" Printing
+" ========
+set printoptions=paper:A4,duplex:long
+" set printoptions+=number:y
+" TODO: Figure out how to print multibyte encodings.  Enabling this settings
+" produces errors.
+" set printencoding=utf-8
+" set printmbcharset=JIS_X_1990	" This allows Japanese characters to be printed
+" set printmbfont=r:Noto-Sans-CJK-JP
 
 " Additions
 " =========
 " TODO: Funcion para reindentar archivo con mi configuracion.  Esta funcion de
 " vim.fandom.com no se como funciona.  (Ver perlexpr?)
 ":command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+"FIX: this shit :(
+" digr :) 0x263a :( 0x2639
+
+" iVim
+" ====
+" TODO: map :h _argument_ to :h _argument_ <C-w>L<C-w>_  This makes help window
+" to almost fill the super small screen.
