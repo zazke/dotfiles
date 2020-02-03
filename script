@@ -1,0 +1,192 @@
+# TODO make this an actual script, for now it only contain the settings I have
+# to adjust manually.  And the paths to where the config files in this
+# repository should be located.
+
+# Config files symbolic links paths (aka soft links, these link the paths; hard
+# links link the inode) 
+
+makedir ~/.vim/
+
+ln -s .bash_aliases ~/.bash_aliases
+ln -s .bashrc ~/.bashrc
+ln -s .inputrc				# allow Vim mode in bash
+ln -s vimrc ~/.vim/vimrc
+
+# KDE Plasma
+
+## System Configuration
+
+Appearance:
+    Workspace Theme:
+	L&F: Breeze Dark
+	DT:	Sweet
+	Cursor Theme: Breeze
+    Colors: Breeze
+    Fonts:
+	Fixed width: SF Mono 10
+    Icons: Breeze Dark
+    Application Style:
+	Widget style: QtCurve
+	    settings file: qtcurvesettings.qtcurve
+	Window Decoration: Breeze
+Workspace:
+    Desktop Behaviour:
+	Workspace: Double-click to open files and folders
+	Screen Edges: No.
+	Screen Locking: 
+	    No automatick screen lock.
+	    Wallpaper: spongebob little cockroach eating krabbypatty, Scaled.
+	Virtual Desktops: 2, 1 row.
+	Activities: Default and Leisure
+    Window Management:
+	Window Behaviour:
+	    Titlebar Action: 
+		Wheel event: Keep Above/Below	# TODO make it only toggle
+						# between keep above
+	    Task Switcher:
+		Visualization: MediumRounded
+	    KWin Scripts:
+		Enforces Window Decoration on GTK+ window
+		MinimizeAll (Meta+D)
+    Shortcuts:
+	Global:
+	    Launch Dolphin	Meta+E
+	    Launch Firefox	Meta+W
+	    Launch GoldenDict	Meta+G
+	    Launch KCalc	Meta+C
+	    Launch Konsole	Meta+<CR>
+	    Launch Thunderbird	Meta+M
+	    
+	    Take Active Win SS	Meta+Print
+	    Take Full SS	Shift+Print
+	    Take Rect. Reg. SS	Meta+Shift+Print
+
+	    Run command		Alt+Space
+	Web: (shortcut:"search string" in Run command)
+	    Amazon		amz
+	    RAE			rae
+	    Github		gh
+	    Gitlab		gt
+	    Google		gg
+	    Google Maps		ggm
+	    MetaCrawler		mc
+	    Python Ref		py
+	    Qt4 Doc		qt4
+	    Vimeo		vm
+	    Wikia		wikia
+	    Wikipedia		wp
+	    Youtube		yt
+    Startup and Shutdown:
+	Login Screen: 
+	    Theme: Debian Maui
+	    Wallpaper: Black Pearl Nandita
+	    Autostart: dropboxd		    # I think this one is configured 
+					    # automatically
+Personalization:
+    Regional Setings:
+	Language: en_US
+	Formats: en_CA
+    Applications:
+	Default Applications:
+	    Email	    Thunder
+	    File Manager    Dolphin
+	    Terminal Emu    Konsole
+	    Web Browser	    Firefox
+	File Associations:
+	    Text	    Vim
+	    Image	    feh
+	    Video	    mpv
+	    Audio	    mpv
+	    pdf		    zathura
+	Location for Personal Files:
+	    Movies: /home/mitsuo/media/Videos
+	    Pictures: /home/mitsuo/media/Pictures
+	    Music: /home/mitsuo/media/Music
+Network:
+    Bluetooth:
+	Disable
+Hardware:
+    Input Devices:
+	Keyboard:
+	    NumLock on Plasma Startup: Turn on
+	    Show layout indicator
+	    Make Caps Lock an additional Esc
+	    Switch to another layout with Win+Space
+	Mouse Controls:
+	    Pointer speed: 4.5
+	    Acceleration: flat
+	Touchpad:
+	    Edge scrolling: no
+	    Two-finger scrolling: yes
+	    Reverse scrolling: no
+    Power Management:
+	Energy Saving:
+	    On AC Power:
+		Dim screen: OFF
+		Switch off screen after 5 min
+		Suspend session: NO
+		Button events:
+		    When lid closed: Do nothing
+		    When power button pressed: Prompt log out dialog
+	    On Battery:
+		Dim screen: OFF
+		Switch off screen after 5 min
+		Suspend session: 10 min
+		Button events:
+		    When lid closed: Do nothing
+		    When power button pressed: Prompt log out dialog
+	    On Low Battery:
+		Screen brightness: low
+		Dim screen: OFF
+		Switch off screen after 5 min
+		Suspend session: 10 min
+		Button events:
+		    When lid closed: Suspend, even when an external monitor is
+				     connected
+		    When power button pressed: Prompt log out dialog
+	Advanced Setting:
+	    Low level: 10%
+	    Critical level: 3%
+	    At critical level: Hibernate
+	    Pause media players when suspending: ON
+    Removable Storage:
+	Removable Devices:
+	    Enable automatic mounting of removable media: OFF
+
+## Widgets configuration
+
+Application Menu:  
+    Behaviour:
+	Icon: Stardewvalley chicken
+	Show application as: Name only
+    Categories:
+	Show: Recently used
+	Show recent applications
+	Show recent documents
+    Search:
+    Expand search to bookmarks, files and emails
+    Align search results to bottom	    # what does this do?
+
+Task Manager:
+    Position:	
+	Bottom, autohide, 30 px heigh
+    Widgets:
+	Quicklaunch: Dolphin, Vim, Konsole, Netbeans, Thunderbird, Clementine,
+		     Spotify
+	System Tray
+	Battery
+	Media Controls
+	Clipboard
+	Clock:
+	    Appearance:
+		Show date
+		Show seconds
+		Use 24-hour Clock
+		ISO Date
+	    Calendar:
+		Show week numbers in Calendar
+	Show desktop button
+
+Netspeed
+
+Comic Strip

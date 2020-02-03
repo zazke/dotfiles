@@ -120,6 +120,11 @@ set printoptions=paper:A4,duplex:long
 "FIX: this shit :(
 " digr :) 0x263a :( 0x2639
 
+" yields result of previous WORD arithmetic expression (from the Vim wiki)
+"inoremap <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+" Replaces previous WORD arithmetic expression with result
+inoremap <C-A> <Esc>diWi<C-R>=<C-R>"<CR>
+
 " iVim
 " ====
 " TODO: map :h _argument_ to :h _argument_ <C-w>L<C-w>_  This makes help window
