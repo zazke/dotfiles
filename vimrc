@@ -25,7 +25,7 @@ set backspace=indent,eol,start
 " Number gutter
 " =============
 set nonumber
-set relativenumber
+set norelativenumber
 
 " Search
 " ======
@@ -38,12 +38,13 @@ set smartcase
 
 " Indentation
 " ===========
-" softtabs de 4 columnas, no se expanden los tabs (util para tabular y para
-" programar en assembler)
+" softtabs de 4 columnas
+" TODO mapping to switch from softtabs to actual tabs by reseting expandtab and
+" softtabstop
 set tabstop=8
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 " autoindent -> smartindent -> cindent -> indentexpr (from less to more
 " general, each one overrides the previous ones)
 set smartindent	" This is a really nice and simple one

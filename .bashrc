@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\hh\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    # Blue timestamp and italic green pwd and reset/normal prompt ($)
+    # Blue timestamp and italic green pwd
     PS1='\[\033[34m\]|\D{%H:%M:%S}| \[\033[3;32m\][\w]\[\033[00m\]\n\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
@@ -79,7 +79,7 @@ if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
-#     alias vdir='vdir --color=auto'
+    #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto -i'
     #alias fgrep='fgrep --color=auto'
@@ -90,9 +90,9 @@ fi
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -l -h'
-alias lla='ll -A'
-alias la='ls -A'
+#alias ll='ls -l -h'
+#alias lla='ll -A'
+#alias la='ls -A'
 #alias l='ls -CF'
 
 # Alias definitions.
@@ -114,10 +114,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-
-# mitsuo's stuff
-# locale environmental variables, stupid sublime error when using 
-# non US locale.
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
