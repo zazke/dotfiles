@@ -1,0 +1,13 @@
+# TODO make this an actual script, for now it only contains some slink commands
+#      and other shit maybe.
+
+# Config files symbolic links names and targets (aka soft links, these link the
+# paths; hard links link the inode) 
+
+makedir ~/.vim/
+
+ln -s -T ~/.dotfiles/.bash_aliases      ~/.bash_aliases
+ln -s -T ~/.dotfiles/.bashrc            ~/.bashrc
+ln -s -T ~/.dotfiles/.inputrc           ~/.inputrc      # allow Vim mode in bash
+ln -s -T ~/.dotfiles/vimrc              ~/.vim/vimrc
+ln -s -T ~/.dotfiles/vimfun             ~/.vim/vimfun
