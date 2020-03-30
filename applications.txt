@@ -1,0 +1,51 @@
+Applications and programs I use
+
+Programs
+================================================================================
+
+Most of these can be easily installed using apt(8).
+
+utilities
+    ghostscript gnupg screenfetch neofetch htop gparted R rename curl gzip grep
+
+devices
+    acpi cups
+
+media
+    vlc audacity mpv feh
+
+docs
+    pdftk pandoc groff vim libreoffice
+
+mail
+    mutt thunderbird
+
+reading
+    zathura calibre 
+
+music
+    clementine mpc ncmpcpp spotify
+
+games
+    zsnes retroarch dolphin cowsay steam minecraft
+
+productivity
+    taskwarrior timewarrior
+
+dev
+    virtualbox git netbeans
+
+ref
+    goldendict wordnet gcide tldr 
+
+network
+    qbittorrent
+
+internet
+    brave-browser discord mullvad-vpn
+
+
+Manual config
+======================================================================
+
+feh: add heif support using https://github.com/vi/imlib2-heic

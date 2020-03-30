@@ -16,7 +16,8 @@ function! LongestLineLength ( )
 "  exe ':0'
 "  exe 'normal O'
 "  exe 'normal 0C'.maxlength
-  exe ":echo \"".maxlinenumber.": ".maxlength."\""
+  exe "normal" . maxlinenumber . "G"
+  exe ":echo \"" . maxlinenumber . ": " . maxlength . "\""
 endfunction
 
 command LongestLineLength call LongestLineLength() 

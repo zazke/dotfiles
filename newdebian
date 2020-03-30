@@ -1,15 +1,4 @@
-Commands and configuration description of my Debian - Plasma KDE 5
-configuration
-
-# Software
-
-apt install ghostscript gnupg screenfetch neofetch vlc pdftk htop gparted R mutt zathura calibre clementine audacity zsnes mpv qbittorrent virtualbox npm ncmpcpp git feh rename pandoc
-
-
-## Manual install
-
-MullvadVPN netbeans Steam Spotify 
-
+My configuration description of Debian - Plasma KDE 5.
 
 # KDE Plasma 5 configuration
 
@@ -64,7 +53,7 @@ Workspace:
 	    Run command		Alt+Space
 	Web: (shortcut:"search string" in Run command)
 	    Amazon		amz
-	    RAE			rae
+	    RAE			rae	https://dle.rae.es/?w=\{@}
 	    Github		gh
 	    Gitlab		gt
 	    Google		gg
@@ -152,6 +141,7 @@ Hardware:
     Removable Storage:
 	Removable Devices:
 	    Enable automatic mounting of removable media: OFF
+
 
 ## Widgets configuration
 
