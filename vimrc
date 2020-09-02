@@ -1,5 +1,6 @@
 " mitsuo's vimrc
 " Created c. 2019-11-11
+" Last update (after destroying it accidentally) 2020-09-02
 "
 "                               ┌─┬─┬─┬─┬─┬─┐           
 "                               │m│i│t│s│u│o│✓x         が
@@ -11,22 +12,46 @@
 " TODO: sort sections
 
 
+" Variables
+" ----------------------------------------------------------------------
+set undodir=$XDG_DATA_HOME/vim/undo
+set directory=$XDG_DATA_HOME/vim/swap
+set backupdir=$XDG_DATA_HOME/vim/backup
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+" TODO fix this
+"let vcpath="~/.vim/vimfun/"          " vim configuration path
+
+
 " Useful
 " ----------------------------------------------------------------------
 set nocompatible
 " Auto-recognize files and apply pluggins 
 " filetype plugin indent on 
 syntax on
+
+" Search files
 set wildmenu
-set showcmd
+set path+=**        " Search down into subfolders
+
+set showcmd         " show partial command on last line (below status bar)
 set scrolloff=5     " show a few lines of context
 
 " not default in some systems
-set backspace=indent,eol,start
+set backspace=indent,eol,start  " Allow <BS> and <Del> in insert mode
 
 " number gutter
 set nonumber
 set norelativenumber
+
+" Tag Jumping
+" Instructions: create tag index (e.g. $ ctags -R .)
+"               place cursor on tag
+"               ^]  to jump to definition
+"               g^] if more than 1 definition
+"               ^T  to return (or ^O)
+" TODO: create tags automatically (:!ctags -R . after :w if ft=c)
+
 
 
 " Search
@@ -92,10 +117,9 @@ set encoding=utf-8
 
 " Mappings
 " ----------------------------------------------------------------------
+map <F5> :source ~/.config/vim/vimrc<CR>
 map <F7> :tabp<CR>
 map <F8> :tabn<CR>
-" TODO: Funcking unmap the F1 key
-"unmap <F1>
 
 
 " Yanking and pasting
@@ -119,25 +143,36 @@ set printoptions=paper:A4,duplex:long
 " set printoptions+=number:y
 " TODO: Figure out how to print multibyte encodings.  Enabling this settings
 " produces errors.
-" set printencoding=utf-8
+set encoding=utf-8
+set fileencoding=utf-8
 " set printmbcharset=JIS_X_1990 " This allows Japanese characters to be printed
 " set printmbfont=r:Noto-Sans-CJK-JP
 
 
-" Variables
-" ----------------------------------------------------------------------
-set undodir=$XDG_DATA_HOME/vim/undo
-set directory=$XDG_DATA_HOME/vim/swap
-set backupdir=$XDG_DATA_HOME/vim/backup
-set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
-" TODO fix this
-"let vcpath="~/.vim/vimfun/"          " vim configuration path
-
-
 " Functions
 " ----------------------------------------------------------------------
+" TODO: maybe replace with $runtimepath
 source ~/.config/vim/fun.vim
+
+
+" Snippets
+" ----------------------------------------------------------------------
+nnoremap ,ch :-1r ~/.config/vim/snippets/cheader.c<CR>
+
+
+" File Browsing
+" ----------------------------------------------------------------------
+" Use netrw out of the box file browser plugin.
+"   :e .            open file browser on current directory
+"   V or t          open file on vsplit or new tab. 
+"   :bd or :Rex     to return
+"   More mappings on |netrw-browse-maps|
+"let g:netrw_banner=0        " disable banner
+"let g:netrw_browse_split=4  " open in prior window
+let g:netrw_altv=1          " open splits to the right
+"let g:netrw_list_hide=netrw_gitignore#Hide()
+"let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'  " wtf? (?)
+" Learned from Max Cantor talk https://youtu.be/XA2WjJbmmoM
 
 
 " Additions
@@ -156,19 +191,32 @@ inoremap <C-A> <Esc>diWi<C-R>=<C-R>"<CR>
 
 " iVim
 " ----------------------------------------------------------------------
-" TODO: map :h _argument_ to :h _argument_ <C-w>L<C-w>_  This makes help window
-" to almost fill the super small screen.
+" TODO: map :h _argument_ to :h _argument_ <C-w>L<C-w>|  makes help window 
+" almost fill the super small screen.
 
 
 " Plugins
 " ----------------------------------------------------------------------
-" Install vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+" Automatic vim-plug install
+if empty(glob('$XDG_CONFIG_HOME/vim/autoload/plug.vim'))
+  silent !curl -fLo $XDG_CONFIG_HOME/vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 call plug#begin()
 Plug 'ARM9/arm-syntax-vim'
-au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
+autocmd BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
+
 call plug#end()
+
+" Other plugins
+source ~/.config/vim/plugins/*
+
+
+" Ducktape
+" ----------------------------------------------------------------------
+" Not even the ducktape worked for this one on C files TODO
+set formatoptions-=o            " Automatically insert the current comment leader 
+" TODO: fix this shit getting reset in a markdown text
+set formatoptions+=r            " auto insert comment leader after <Enter>

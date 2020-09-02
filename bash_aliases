@@ -15,14 +15,21 @@ alias grep='grep --color=auto -i'       # color case-insensitive
 alias la='ls -A'
 alias ll='ls -l -h'
 alias lla='ll -A'
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --group-directories-first --classify'
 #alias less='less -Ri'          # make less's searches case insensitive and
                                 # colorized
 LESS=Ri                         # TODO move to an appropiate place
+alias gcc='gcc -g -std=c99 -lm'
+alias ed='ed -p "* "'
+alias diff='diff -s'
 
 # Other program's options
 # ======================================================================
-alias feh='feh -g 640x480 -S filename'
+#alias feh='feh -g 640x480 -S filename'  # opens files sorted by filename
+alias feh='feh -g 640x480 --auto-zoom --scale-down --on-last-slide hold'
+alias feht='feh -Tthumb_s'
+alias fehfx='feh -Tfs --slideshow-delay'
+alias fehfrx='feh -Tfs --recursive --slideshow-delay'
 alias units='units --verbose'
 
 
@@ -36,10 +43,9 @@ alias cp='cp -i'          # same
 # Quick tools
 # ======================================================================
 alias pdfreduce='gs -sDEVICE=pdfwrite -dPDFSETTINGS=/ebook'
-alias weather="curl wttr.in/Austin?mF"
-alias weatherhelp="curl wttr.in/:help"
 alias youtube-dl_info='youtube-dl --get-filename --get-format --get-duration --get-description'
 alias youtube-dl_fast='youtube-dl --format "best[height<=720]" -o '\''%(title)s.%(ext)s'\'
+alias mpv_webcam='mpv av://v4l2:/dev/video0'    # retrived from the Archwiki
 
 
 # Cosmetic

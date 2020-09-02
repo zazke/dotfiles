@@ -120,9 +120,17 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Bash completition for pandoc
+eval "$(pandoc --bash-completion)"
+
 # Greeting or salute
-cowsay -f flaming-sheep "oh no"
+# TODO: randomly select one of the following greeting commands
+#cowsay -f flaming-sheep "oh no" # original
+#cowsay $(fortune -e 30% debian-hints 20% linux 20% science \
+cowsay $(fortune 30% debian-hints 20% linux 20% science \
+                 20% off/linux 10% off/black-humor)
+#fortune ascii-art
 
 # Some environmental variables.
-export TLDR_CONFIG_DIR="$HOME/.config"
+export TLDR_CONFIG_DIR="$XDG_CONFIG_HOME"
 export GPG=TTY=$(tty)
