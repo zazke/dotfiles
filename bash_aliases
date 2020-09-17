@@ -1,7 +1,7 @@
 # Shortcuts
 # ======================================================================
 alias aliases='vim ~/.bash_aliases && source ~/.bash_aliases'
-alias evrc='vim ~/.config/vim/vimrc'
+alias evrc='vim ~/.vim/vimrc'
 alias ebrc='vim ~/.bashrc && source ~/.bashrc'
 
 

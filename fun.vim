@@ -58,9 +58,10 @@ command Md2Html call Md2Html()
 
 " Compiles and Runs a C++ project
 
+" TODO: how to add program's arguments or file redirectioning  from command.
 function! CompRunProj ( )
     exe ":w"
-    exe ":! g++ -o " . expand("%:r") . " *.cpp"
+    exe ":! g++ -o " . expand("%:r") . "-g *.cpp"
     exe ":! ./" . expand("%:r")
 endfunction
 
